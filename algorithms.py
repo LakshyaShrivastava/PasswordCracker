@@ -2,7 +2,7 @@ import hashlib
 import itertools
 import string
 
-DEBUG_PRINT = True
+DEBUG_PRINT = False
 
 def brute_force(hash_to_crack, max_length):
     # characters to include in brute force
