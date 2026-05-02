@@ -1,14 +1,6 @@
-import hashlib
-from algorithms import brute_force
+"""Backward-compatible entry point — prefer the ``passcrack`` console script."""
 
-# brute_force_test
-def brute_force_test():
-    target_hash = hashlib.sha256(b"abc123").hexdigest()
-    cracked_password = brute_force(target_hash, max_length=6)
-    if cracked_password:
-        print(f"Password cracked: {cracked_password}")
-    else:
-        print("Password not found.")
+from passcrack.cli import main
 
-if __name__ == '__main__':
-    brute_force_test()
+if __name__ == "__main__":
+    main()

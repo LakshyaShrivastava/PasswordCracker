@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "passcrack-edu"
+version = "0.2.0"
+description = "Educational password hash cracking demos (CLI, benchmarks, optional ML)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Lakshya Shrivastava" }]
+keywords = ["security", "education", "password", "hash"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Security :: Cryptography",
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+bcrypt = ["bcrypt>=4.0"]
+ml = ["tensorflow>=2.15"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+passcrack = "passcrack.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["passcrack*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
